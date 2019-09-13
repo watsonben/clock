@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<style>
+html{
+	background: black;
+	color: #eee;
+}
+
+		div{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			font-size: 250px;
+			font-weight: 100;
+			font-family: Roboto, sans-serif;
+		}
+
+		#seconds{
+			font-size: 150px;
+		}
+	</style>
+</head>
+
+<body onload="startInterval()">
+	<div>
+		<span id="time"></span>&nbsp;<span id="seconds"></span>
+	</div>
+</body>
+
+<script>
+	function updateTime(){
+		$("#time").html(moment().format("HH:mm"));
+		$("#seconds").html(moment().format("ss"));
+	}
+
+function startInterval(){
+	setInterval(updateTime, 10);
+}
+</script>
